@@ -1,0 +1,60 @@
+<ion-view view-title="Browse">
+
+<ion-content class="padding">
+
+
+    <input type = "number" ng-model = "num.n1" /> +
+    <input type = "number" ng-model = "num.n2" /> =
+    <span>{{ sum() }}</span>
+
+
+        <div class="row">
+ 
+          <div class="col">
+            <label class="item item-input item-floating-label">
+              <input type="number" placeholder="{{data.a}}" ng-model="data.a">
+            </label>
+          </div>
+ 
+          <div class="col col-10 ion-arrow-right-b"></div>
+          
+          <div class="col">
+            <label class="item item-input item-floating-label">
+              <input type="number" placeholder="{{data.x}}" ng-model="data.x">
+            </label>
+          </div>
+ 
+        </div>
+ 
+        <div class="row">
+ 
+          <div class="col">
+            <label class="item item-input item-floating-label">
+              <input type="number" placeholder="{{data.b}}" ng-model="data.b">
+            </label>
+          </div>
+ 
+          <div class="col col-10 ion-arrow-right-b"></div>
+ 
+          <div class="col">
+            <label class="item item-positive item-floating-label" id="result">
+              {{result()}}
+            </label>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <div class="row">
+ 
+        <div class="col">
+ 
+          <p>Si necesito {{data.x}} zanahorias para alimentar {{data.a}} conejos, ¿cuántas zanahorias necesito para alimentar {{data.b}} conejos?</p>
+ 
+          A= {{data.a}} B= {{data.b}} X= {{data.x}}
+        </div>
+      </div>
+
+</ion-content>
+
+</ion-view>

@@ -1,0 +1,10 @@
+<ion-view view-title="Jenis">
+  <ion-content>
+    <h1>{{ title }}</h1>
+    <ion-list>
+    	<ion-item ng-repeat="kanal in jenis" href="#/app/kanal/{{ slug }}/barang/{{ kanal.slug }}">
+    		{{ kanal.barang }}
+    	</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
