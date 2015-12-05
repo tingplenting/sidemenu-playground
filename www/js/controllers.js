@@ -62,18 +62,34 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+// .controller('PlaylistsCtrl', function($scope) {
+//   $scope.playlists = [
+//     { title: 'Reggae', id: 1 },
+//     { title: 'Chill', id: 2 },
+//     { title: 'Dubstep', id: 3 },
+//     { title: 'Indie', id: 4 },
+//     { title: 'Rap', id: 5 },
+//     { title: 'Cowbell', id: 6 }
+//   ];
+// })
+
+.controller('PlaylistsCtrl', function($scope, $http) {
+
+    $http.get('http://api.soundcloud.com/users/8553751/playlists.json?client_id='+client_id+'&limit=10')
+    .success(function(data){
+      $scope.playlists = data;
+    });
+
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('PlaylistCtrl', function($scope, $stateParams, $http) {
+  var playlistId = $stateParams.playlistId;
+
+  $http.get('http://api.soundcloud.com/playlists/'+playlistId+'?client_id='+client_id)
+  .success(function(data) {
+    $scope.playlist = data.tracks;
+  });
+
 })
 
 .controller('ItemlistCtrl',  function($rootScope){
