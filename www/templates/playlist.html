@@ -2,7 +2,8 @@
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="song in playlist"
-      	class="item-thumbnail-right item-text-wrap"><!--ngatur thumbnail dan ngatur wrap-->
+      	class="item-thumbnail-right item-text-wrap"
+      	href="#/app/play/{{ song.id }}"><!--ngatur thumbnail dan ngatur wrap-->
       	<img ng-src="{{song.artwork_url}}"><!--posisi img paling atas-->
       	<div>{{song.title}}</div> 
       </ion-item>

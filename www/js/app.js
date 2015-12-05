@@ -60,12 +60,22 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-  .state('app.single', {
+  .state('app.playlist', {
     url: '/playlists/:playlistId',
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',
         controller: 'PlaylistCtrl'
+      }
+    }
+  })
+
+  .state('app.play', {
+    url: '/play/:playId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/play.html',
+        controller: 'PlayCtrl'
       }
     }
   })

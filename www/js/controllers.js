@@ -92,6 +92,22 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller('PlayCtrl', function($scope, $stateParams, $http) {
+  var playId = $stateParams.playId;
+
+  $http.get('http://api.soundcloud.com/tracks/'+playId+'?client_id='+client_id)
+  .success(function(data) {
+    // var artwork_url = data.artwork_url;
+    // $scope.tracks = data;
+    $scope.title = data.title;
+    $scope.taglist = data.tag_list;
+    $scope.description = data.description;
+    $scope.artwork = data.artwork_url.replace('-large', '-t500x500');
+    $scope.user = data.user.username;
+
+  });
+})
+
 .controller('ItemlistCtrl',  function($rootScope){
 
   $rootScope.itemlist = [
